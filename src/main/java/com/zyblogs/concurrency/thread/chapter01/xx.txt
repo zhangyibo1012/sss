@@ -3,3 +3,10 @@ Java应用程序的main函数是一个线程，是被JVM启动时调用，线程
 在jvm启动的时候，实际上有多个线程，但是至少有一个非守护线程。
 当你调用一个线程start方法的时候，此时只是有两个线程，一个是调用你的线程，还有一个执行run线程
 线程生命周期：new runable running block termate
+
+==================================
+创建线程对象默认线程名以Yhread-开头，从0开始计数。
+构造函数Thread(Runable)
+
+
+如果在构造Tread的时候没有传递Runable或者没有复写Thread的run方法，该Thread不会调用任何东西。如果传递了RUnable接口的实例，或者复写了thread的run方法，则会执行该方法的逻辑代码
