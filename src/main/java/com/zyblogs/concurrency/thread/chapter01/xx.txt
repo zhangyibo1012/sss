@@ -1,0 +1,5 @@
+Java应用程序的main函数是一个线程，是被JVM启动时调用，线程名字叫run。
+实现一个线程，必须常见Thread实例，override run方法，并且调用start方法
+在jvm启动的时候，实际上有多个线程，但是至少有一个非守护线程。
+当你调用一个线程start方法的时候，此时只是有两个线程，一个是调用你的线程，还有一个执行run线程
+线程生命周期：new runable running block termate
