@@ -37,6 +37,8 @@ public class ThreadJoin2 {
         Thread t2 = new Thread(() -> {
             try {
                 Thread.sleep(10000);
+
+                // 中断当前线程
                 t1.interrupt();
                 System.out.println("interrupt");
             } catch (InterruptedException e) {
