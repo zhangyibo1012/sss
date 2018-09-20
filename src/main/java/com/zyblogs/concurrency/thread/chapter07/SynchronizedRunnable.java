@@ -10,6 +10,9 @@ package com.zyblogs.concurrency.thread.chapter07;
 public class SynchronizedRunnable implements Runnable{
     private int index = 1;
 
+    /**
+     *  readonly shared data.
+     */
     private final static int MAX = 500;
 
     /**
@@ -29,6 +32,11 @@ public class SynchronizedRunnable implements Runnable{
         }
     }
 
+    /**
+     * 方法加锁是this锁 synchronized(this){}
+     * 等价于  private synchronized boolean ticket()
+     * @return
+     */
     private synchronized boolean ticket(){
 
         // 1.getFiled 读操作
