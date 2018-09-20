@@ -17,20 +17,36 @@ public class SynchronizedRunnable implements Runnable{
      */
     private final Object MONITOR = new Object();
 
+    /**
+     *  this
+     */
     @Override
-    public synchronized void run() {
+    public  void run() {
         while (true){
-            // synchronized代码块是单线程执行 会影响效率
-                if (index > MAX){
-                    break;
-                }
-                try {
-                    Thread.sleep(5);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(Thread.currentThread() + "的号码是:" + (index++));
+            if (ticket()) {
+                break;
             }
-            // synchronized代码块是单线程执行
+        }
+    }
+
+    private synchronized boolean ticket(){
+
+        // 1.getFiled 读操作
+        if (index > MAX){
+            return true;
+        }
+
+        try {
+            Thread.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //index++=>index = index+1
+        //1. get Field index
+        //2. index = index+1
+        //3. put field index
+        System.out.println(Thread.currentThread() + "的号码是:" + (index++));
+        return false;
     }
 }
