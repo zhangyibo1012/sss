@@ -7,7 +7,7 @@ package com.zyblogs.concurrency.pattern.chapter07;
  * @Author ZhangYB
  * @Version V1.0
  */
-public class UsePersonThread extends Thread{
+public class UsePersonThread extends Thread {
 
     private Person person;
 
@@ -17,7 +17,7 @@ public class UsePersonThread extends Thread{
 
     @Override
     public void run() {
-        while (true){
+        while (true) {
             System.out.println(Thread.currentThread().getName() + " print " + person);
         }
     }

@@ -4,11 +4,10 @@ package com.zyblogs.concurrency.pattern.chapter08;
  * @Title: SyncInvoker.java
  * @Package com.zyblogs.concurrency.pattern.chapter08
  * @Description: 异步调用
- *
+ * <p>
  * Future 代表的是未来的一个凭证
  * FutureTask  将你的调用逻辑进行了隔离
  * FutureService  桥接Future和FutureTask
- *
  * @Author ZhangYB
  * @Version V1.0
  */
@@ -25,7 +24,7 @@ public class SyncInvoker {
                 e.printStackTrace();
             }
             return "FINISH";
-        } ,System.out::println);
+        }, System.out::println);
 
         System.out.println("==================");
         System.out.println("do other thing.");
@@ -36,7 +35,7 @@ public class SyncInvoker {
 //        System.out.println(future.get());
     }
 
-    private static String get(){
+    private static String get() {
         try {
             Thread.sleep(10_000);
         } catch (InterruptedException e) {

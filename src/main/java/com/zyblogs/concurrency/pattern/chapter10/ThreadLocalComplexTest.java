@@ -17,7 +17,7 @@ public class ThreadLocalComplexTest {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Thread t1 = new Thread(()->{
+        Thread t1 = new Thread(() -> {
             threadLocal.set("Thread-T1");
             try {
                 Thread.sleep(random.nextInt(1000));
@@ -27,7 +27,7 @@ public class ThreadLocalComplexTest {
             }
         });
 
-        Thread t2 = new Thread(()->{
+        Thread t2 = new Thread(() -> {
             threadLocal.set("Thread-T2");
             try {
                 Thread.sleep(random.nextInt(1000));
@@ -45,6 +45,6 @@ public class ThreadLocalComplexTest {
         System.out.println("========================");
 
         // main 主线程取值
-        System.out.println(Thread.currentThread().getName() + " " + threadLocal.get()  );
+        System.out.println(Thread.currentThread().getName() + " " + threadLocal.get());
     }
 }

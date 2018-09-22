@@ -9,7 +9,7 @@ package com.zyblogs.concurrency.pattern.chapter07;
  */
 public class StringTest {
     public static void main(String[] args) {
-        String  s = "Hello";
+        String s = "Hello";
         String s2 = s.replace("l", "k");
         System.out.println(s2);
         System.out.println(s2.getClass() + " " + s2.hashCode());

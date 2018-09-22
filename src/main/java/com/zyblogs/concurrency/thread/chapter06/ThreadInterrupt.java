@@ -11,7 +11,7 @@ public class ThreadInterrupt {
     public static void main(String[] args) throws InterruptedException {
 
         Thread t = new Thread(() -> {
-            while (true){
+            while (true) {
                 try {
                     Thread.sleep(10_000);
                 } catch (InterruptedException e) {

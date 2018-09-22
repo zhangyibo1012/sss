@@ -16,6 +16,7 @@ public class Gate {
     /**
      * 临界值
      * 通过
+     *
      * @param name
      * @param address
      */
@@ -28,7 +29,7 @@ public class Gate {
     }
 
     /**
-     *  效验是否通过门
+     * 效验是否通过门
      */
     private void verify() {
         if (this.name.charAt(0) != this.address.charAt(0)) {

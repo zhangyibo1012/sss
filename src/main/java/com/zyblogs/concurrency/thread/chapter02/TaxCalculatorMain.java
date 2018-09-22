@@ -20,8 +20,8 @@ public class TaxCalculatorMain {
 
         TaxCalaculator calaculator = new TaxCalaculator(10000d
                 , 2000d);
-    CalculatorStrategy strategy = new SimpleCalculatorStrategy();
-    calaculator.setCalculatorStrategy(strategy);
+        CalculatorStrategy strategy = new SimpleCalculatorStrategy();
+        calaculator.setCalculatorStrategy(strategy);
         System.out.println(calaculator.calcuate());
     }
 }

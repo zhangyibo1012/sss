@@ -19,10 +19,10 @@ public class CreateThread {
         Thread t3 = new Thread("MyName");
         System.out.println(t3.getName());
 
-        Thread t4 = new Thread(()-> System.err.println("Runable"));
+        Thread t4 = new Thread(() -> System.err.println("Runable"));
         System.out.println(t4.getName());
 
-        Thread t5 = new Thread(()-> System.err.println("Runable>>>" + Thread.currentThread().getName()) ,"RunnableThread");
+        Thread t5 = new Thread(() -> System.err.println("Runable>>>" + Thread.currentThread().getName()), "RunnableThread");
 //        System.out.println(t5.getName());
         t5.start();
     }

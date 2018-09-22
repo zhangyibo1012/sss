@@ -13,8 +13,8 @@ public class AsynFuture<T> implements Future<T> {
 
     private T result;
 
-    public void done( T result) {
-        synchronized (this){
+    public void done(T result) {
+        synchronized (this) {
             this.result = result;
             this.done = true;
             this.notifyAll();
@@ -29,8 +29,8 @@ public class AsynFuture<T> implements Future<T> {
      */
     @Override
     public T get() throws InterruptedException {
-        synchronized (this){
-            while (!done){
+        synchronized (this) {
+            while (!done) {
                 this.wait();
             }
         }

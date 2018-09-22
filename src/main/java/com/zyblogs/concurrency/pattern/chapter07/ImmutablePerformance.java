@@ -42,7 +42,7 @@ public class ImmutablePerformance {
 }
 
 /**
- *  不可变
+ * 不可变
  */
 final class ImmutableObj {
     private final String name;
@@ -58,7 +58,7 @@ final class ImmutableObj {
 }
 
 /**
- *  可变
+ * 可变
  */
 class SyncObj {
 

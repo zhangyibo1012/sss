@@ -11,24 +11,24 @@ import java.util.Collections;
  * @Author ZhangYB
  * @Version V1.0
  */
-public class BooleanLock  implements Lock{
+public class BooleanLock implements Lock {
 
-        /**
-         *  true  已经被拿走  false 闲的 可以抢
-         */
-         private boolean initValue;
+    /**
+     * true  已经被拿走  false 闲的 可以抢
+     */
+    private boolean initValue;
 
-         private Collection<Thread> blockedThreadCollection = new ArrayList<>();
+    private Collection<Thread> blockedThreadCollection = new ArrayList<>();
 
-         private Thread currentThread;
+    private Thread currentThread;
 
-         public BooleanLock(){
-           this.initValue = false;
-       }
+    public BooleanLock() {
+        this.initValue = false;
+    }
 
     @Override
     public synchronized void lock() throws InterruptedException {
-        while (initValue){
+        while (initValue) {
             blockedThreadCollection.add(Thread.currentThread());
             this.wait();
         }
@@ -40,7 +40,7 @@ public class BooleanLock  implements Lock{
 
     @Override
     public synchronized void lock(long mills) throws InterruptedException, TimeOutException {
-        if (mills <= 0){
+        if (mills <= 0) {
             lock();
         }
 
@@ -71,7 +71,7 @@ public class BooleanLock  implements Lock{
 
     @Override
     public Collection<Thread> getBlockedThread() {
-             // 不允许别人修改
+        // 不允许别人修改
         return Collections.unmodifiableCollection(blockedThreadCollection);
     }
 

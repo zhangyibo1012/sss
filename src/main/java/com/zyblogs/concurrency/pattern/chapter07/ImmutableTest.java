@@ -18,17 +18,16 @@ public class ImmutableTest {
     private final int age;
     @Getter
     private final String name;
-
-    public List<String> getList() {
-        // get的时候返回不可变 不可操作
-        return Collections.unmodifiableList(list);
-    }
-
     private final List<String> list;
 
     public ImmutableTest(int age, String name, List<String> list) {
         this.age = age;
         this.name = name;
         this.list = list;
+    }
+
+    public List<String> getList() {
+        // get的时候返回不可变 不可操作
+        return Collections.unmodifiableList(list);
     }
 }

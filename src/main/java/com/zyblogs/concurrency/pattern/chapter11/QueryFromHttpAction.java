@@ -9,19 +9,19 @@ package com.zyblogs.concurrency.pattern.chapter11;
  */
 public class QueryFromHttpAction {
 
-    public void execute(){
+    public void execute() {
         Context context = ActionContext.getActionContext().getContext();
         String name = context.getName();
         String cardId = getCardId(name);
         context.setCardId(cardId);
     }
 
-    private String getCardId(String name){
+    private String getCardId(String name) {
         try {
             Thread.sleep(1_00);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "23648290767230 " + Thread.currentThread().getName() ;
+        return "23648290767230 " + Thread.currentThread().getName();
     }
 }

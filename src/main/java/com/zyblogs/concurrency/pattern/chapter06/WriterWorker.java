@@ -9,20 +9,20 @@ import java.util.Random;
  * @Author ZhangYB
  * @Version V1.0
  */
-public class WriterWorker extends Thread{
+public class WriterWorker extends Thread {
 
     private static final Random random = new Random(System.currentTimeMillis());
 
     /**
-     *  共享数据
+     * 共享数据
      */
     private final SharedData data;
 
     private final String filler;
 
-    private int index = 0 ;
+    private int index = 0;
 
-    public WriterWorker(SharedData data , String filler){
+    public WriterWorker(SharedData data, String filler) {
         this.data = data;
         this.filler = filler;
     }
@@ -31,21 +31,21 @@ public class WriterWorker extends Thread{
     public void run() {
 
         try {
-        while (true){
-            char c = nextChar();
-            data.write(c);
-            Thread.sleep(random.nextInt(1_000));
+            while (true) {
+                char c = nextChar();
+                data.write(c);
+                Thread.sleep(random.nextInt(1_000));
             }
-        }catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    private char nextChar(){
+    private char nextChar() {
         char c = filler.charAt(index);
         index++;
-        if (index >= filler.length()){
+        if (index >= filler.length()) {
             index = 0;
         }
         return c;

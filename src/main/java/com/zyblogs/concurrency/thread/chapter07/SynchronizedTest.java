@@ -10,14 +10,14 @@ package com.zyblogs.concurrency.thread.chapter07;
 public class SynchronizedTest {
 
     /**
-     *  以final修饰的变量尽量大写
+     * 以final修饰的变量尽量大写
      */
-    private final static  Object LOCK = new Object();
+    private final static Object LOCK = new Object();
 
     public static void main(String[] args) {
 
-        Runnable runnable = () ->{
-            synchronized (LOCK){
+        Runnable runnable = () -> {
+            synchronized (LOCK) {
                 try {
                     Thread.sleep(200_000);
                 } catch (InterruptedException e) {

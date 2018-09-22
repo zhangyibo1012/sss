@@ -10,17 +10,17 @@ package com.zyblogs.concurrency.thread.chapter07;
 public class SychronizedStatic {
 
     static {
-            synchronized (SychronizedStatic.class){
-                try {
-                    System.out.println("static " + Thread.currentThread().getName());
-                    Thread.sleep(10_000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        synchronized (SychronizedStatic.class) {
+            try {
+                System.out.println("static " + Thread.currentThread().getName());
+                Thread.sleep(10_000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+        }
     }
 
-    public synchronized static void m1(){
+    public synchronized static void m1() {
         System.out.println("m1 " + Thread.currentThread().getName());
         try {
             Thread.sleep(10_000);
@@ -29,7 +29,7 @@ public class SychronizedStatic {
         }
     }
 
-    public synchronized static void m2(){
+    public synchronized static void m2() {
         System.out.println("m2 " + Thread.currentThread().getName());
         try {
             Thread.sleep(10_000);
@@ -38,7 +38,7 @@ public class SychronizedStatic {
         }
     }
 
-    public  static void m3(){
+    public static void m3() {
         System.out.println("m3 " + Thread.currentThread().getName());
         try {
             Thread.sleep(10_000);

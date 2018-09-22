@@ -11,9 +11,9 @@ import java.util.function.Consumer;
  */
 public class FutureService {
 
-    public <T> Future<T> submit(final FutureTask<T> task){
+    public <T> Future<T> submit(final FutureTask<T> task) {
         AsynFuture<T> asynFuture = new AsynFuture<>();
-        new Thread(()->{
+        new Thread(() -> {
             T result = task.call();
             // 通知 改变状态
             asynFuture.done(result);
@@ -22,7 +22,8 @@ public class FutureService {
     }
 
     /**
-     *   回调   consumer.accept(result);
+     * 回调   consumer.accept(result);
+     *
      * @param task
      * @param consumer
      * @param <T>

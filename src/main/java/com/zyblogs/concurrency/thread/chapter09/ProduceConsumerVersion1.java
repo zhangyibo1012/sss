@@ -9,32 +9,15 @@ package com.zyblogs.concurrency.thread.chapter09;
  */
 public class ProduceConsumerVersion1 {
 
-    private int i = 1;
-
     final private Object LOCK = new Object();
-
-    /**
-     *  生产者
-     */
-    private void produce(){
-        synchronized (LOCK){
-            System.out.println("P->" + (i ++));
-        }
-    }
-
-    /**
-     * 消费者
-     */
-    private void consume(){
-        System.out.println("C->" + i);
-    }
+    private int i = 1;
 
     public static void main(String[] args) {
 
         ProduceConsumerVersion1 pc = new ProduceConsumerVersion1();
 
         // 生产者线程
-        new Thread("P"){
+        new Thread("P") {
             @Override
             public void run() {
                 while (true) {
@@ -44,7 +27,7 @@ public class ProduceConsumerVersion1 {
         }.start();
 
         // 消费者线程
-        new Thread("C"){
+        new Thread("C") {
             @Override
             public void run() {
                 while (true) {
@@ -52,5 +35,21 @@ public class ProduceConsumerVersion1 {
                 }
             }
         }.start();
+    }
+
+    /**
+     * 生产者
+     */
+    private void produce() {
+        synchronized (LOCK) {
+            System.out.println("P->" + (i++));
+        }
+    }
+
+    /**
+     * 消费者
+     */
+    private void consume() {
+        System.out.println("C->" + i);
     }
 }

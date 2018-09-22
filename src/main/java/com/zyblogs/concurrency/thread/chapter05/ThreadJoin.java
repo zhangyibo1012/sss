@@ -15,9 +15,9 @@ public class ThreadJoin {
     public static void main(String[] args) throws InterruptedException {
 
         // 打印0到1000的数字
-        Thread t1 = new Thread(()-> IntStream.range(1 ,1000).forEach(i -> System.out.println(Thread.currentThread().getName() + "->" + i))) ;
+        Thread t1 = new Thread(() -> IntStream.range(1, 1000).forEach(i -> System.out.println(Thread.currentThread().getName() + "->" + i)));
 
-        Thread t2 = new Thread(()-> IntStream.range(1 ,1000).forEach(i -> System.out.println(Thread.currentThread().getName() + "->" + i))) ;
+        Thread t2 = new Thread(() -> IntStream.range(1, 1000).forEach(i -> System.out.println(Thread.currentThread().getName() + "->" + i)));
 
         t1.start();
         t2.start();
@@ -29,6 +29,6 @@ public class ThreadJoin {
 
         Optional.of("All of tasks finish done.").ifPresent(System.out::println);
 
-        IntStream.range(1 ,1000).forEach(i -> System.out.println(Thread.currentThread().getName() + "->" + i));
+        IntStream.range(1, 1000).forEach(i -> System.out.println(Thread.currentThread().getName() + "->" + i));
     }
 }

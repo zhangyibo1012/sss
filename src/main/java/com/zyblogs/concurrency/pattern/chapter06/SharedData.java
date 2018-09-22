@@ -14,7 +14,7 @@ public class SharedData {
 
     private final ReadWriteLock lock = new ReadWriteLock();
 
-    public SharedData(int  size) {
+    public SharedData(int size) {
         this.buffer = new char[size];
         for (int i = 0; i < size; i++) {
             this.buffer[i] = '*';

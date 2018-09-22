@@ -11,16 +11,38 @@ import java.util.stream.Stream;
  */
 public class ProduceConsumerVersion2 {
 
-    private int i = 0;
-
     final private Object LOCK = new Object();
-
+    private int i = 0;
     // 是否生产
     private volatile boolean isProduced = false;
 
-    public void produce(){
-        synchronized (LOCK){
-            if (isProduced){
+    public static void main(String[] args) {
+
+        ProduceConsumerVersion2 pc = new ProduceConsumerVersion2();
+
+        Stream.of("P1", "P2").forEach(n ->
+                // 生产
+                new Thread(() -> {
+                    while (true) {
+                        pc.produce();
+                    }
+                }).start()
+        );
+
+
+        Stream.of("C1", "C2").forEach(n ->
+                // 消费
+                new Thread(() -> {
+                    while (true) {
+                        pc.consume();
+                    }
+                }).start()
+        );
+    }
+
+    public void produce() {
+        synchronized (LOCK) {
+            if (isProduced) {
                 // 已经生产
                 try {
                     LOCK.wait();
@@ -28,7 +50,7 @@ public class ProduceConsumerVersion2 {
                     e.printStackTrace();
                 }
             } else {
-                i ++;
+                i++;
                 System.out.println("P->" + i);
                 // 通知消费者
                 LOCK.notify();
@@ -37,9 +59,9 @@ public class ProduceConsumerVersion2 {
         }
     }
 
-    public void consume(){
-        synchronized (LOCK){
-            if (isProduced){
+    public void consume() {
+        synchronized (LOCK) {
+            if (isProduced) {
                 // 已经生产 去消费
                 System.out.println("C->" + i);
                 // 通知生产者再次生产
@@ -53,30 +75,6 @@ public class ProduceConsumerVersion2 {
                 }
             }
         }
-    }
-
-    public static void main(String[] args) {
-
-        ProduceConsumerVersion2 pc = new ProduceConsumerVersion2();
-
-        Stream.of("P1" , "P2").forEach(n ->
-        // 生产
-        new Thread(()->{
-            while (true){
-                pc.produce();
-            }
-        }).start()
-        );
-
-
-        Stream.of("C1" ,"C2").forEach(n ->
-        // 消费
-        new Thread(()->{
-            while (true){
-                pc.consume();
-            }
-        }).start()
-        );
     }
 
 }

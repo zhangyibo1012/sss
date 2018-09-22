@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
  * @Version V1.0
  */
 @AllArgsConstructor
-public class User extends Thread{
+public class User extends Thread {
 
     private final String myName;
 

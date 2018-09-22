@@ -11,14 +11,14 @@ import java.util.Optional;
  */
 public class ThreadSimpleAPI {
     public static void main(String[] args) {
-        Thread t = new Thread( () ->{
+        Thread t = new Thread(() -> {
             Optional.of("Hello").ifPresent(System.out::println);
             try {
                 Thread.sleep(1_000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        } , "t1");
+        }, "t1");
 
         t.start();
         // name

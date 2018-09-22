@@ -9,7 +9,7 @@ package com.zyblogs.concurrency.pattern.chapter10;
  */
 public class ThreadLocalSimpleTest {
 
-    private static ThreadLocal<String> threadLocal = new ThreadLocal(){
+    private static ThreadLocal<String> threadLocal = new ThreadLocal() {
         @Override
         protected String initialValue() {
             return "Alex";
@@ -17,7 +17,8 @@ public class ThreadLocalSimpleTest {
     };
 
     /**
-     *  JVM start main thread
+     * JVM start main thread
+     *
      * @param args
      */
     public static void main(String[] args) throws InterruptedException {

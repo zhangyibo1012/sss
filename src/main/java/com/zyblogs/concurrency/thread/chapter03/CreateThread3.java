@@ -9,15 +9,15 @@ package com.zyblogs.concurrency.thread.chapter03;
  */
 public class CreateThread3 {
 
-    private int i = 0 ;
-
+    private static int counter = 0;
+    private int i = 0;
     private byte[] bytes = new byte[1024];
 
-    private static int counter = 0;
     /**
      * JVM 创建main线程  开辟虚拟机栈stack
      * JVM will create a thread named "main"
-      * @param args
+     *
+     * @param args
      */
     public static void main(String[] args) {
 
@@ -36,7 +36,7 @@ public class CreateThread3 {
         }
     }
 
-    private static void add(int i){
+    private static void add(int i) {
         ++counter;
         add(i + 1);
     }

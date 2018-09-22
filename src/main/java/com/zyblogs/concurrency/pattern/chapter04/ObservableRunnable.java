@@ -10,24 +10,24 @@ import lombok.Getter;
  * @Author ZhangYB
  * @Version V1.0
  */
-public abstract class ObservableRunnable implements Runnable{
+public abstract class ObservableRunnable implements Runnable {
 
-      final  protected LifecycleListener listener;
+    final protected LifecycleListener listener;
 
-    public ObservableRunnable(final  LifecycleListener listener){
+    public ObservableRunnable(final LifecycleListener listener) {
         this.listener = listener;
     }
 
-    protected void notifyChange(final RunnableEvent event){
+    protected void notifyChange(final RunnableEvent event) {
         listener.onEvent(event);
     }
 
-    public enum RunnableState{
-        RUNNING,ERROR,DONE;
+    public enum RunnableState {
+        RUNNING, ERROR, DONE;
     }
 
     @Getter
-    public static class RunnableEvent{
+    public static class RunnableEvent {
         private final RunnableState state;
         private final Thread thread;
         private final Throwable cause;

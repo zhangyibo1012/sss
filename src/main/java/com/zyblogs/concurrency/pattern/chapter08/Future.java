@@ -10,7 +10,8 @@ package com.zyblogs.concurrency.pattern.chapter08;
 public interface Future<T> {
 
     /**
-     *  中断异常
+     * 中断异常
+     *
      * @return
      * @throws InterruptedException
      */

@@ -13,21 +13,22 @@ public class CreateThread4 {
 
     public static void main(String[] args) {
 
-        Thread t1 = new Thread( null ,new Runnable() {
+        Thread t1 = new Thread(null, new Runnable() {
             @Override
             public void run() {
 
                 try {
                     add(1);
                 } catch (Error e) {
-                   System.out.println(count);
+                    System.out.println(count);
                 }
             }
-            private void add(int i){
+
+            private void add(int i) {
                 count++;
                 add(i + 1);
             }
-        },"Test" , 1 << 24);
+        }, "Test", 1 << 24);
 
         t1.start();
     }

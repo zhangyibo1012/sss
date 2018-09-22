@@ -9,7 +9,7 @@ import java.util.Random;
  * @Author ZhangYB
  * @Version V1.0
  */
-public class ClientThread  extends Thread{
+public class ClientThread extends Thread {
 
     private final RequestQueue queue;
     private final Random random;
@@ -23,8 +23,8 @@ public class ClientThread  extends Thread{
 
     @Override
     public void run() {
-        for (int i = 0; i < 10;i ++){
-            System.out.println("Client -> request " + sendValue );
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Client -> request " + sendValue);
             queue.putRequest(new Request(sendValue));
             try {
                 Thread.sleep(random.nextInt(1_000));

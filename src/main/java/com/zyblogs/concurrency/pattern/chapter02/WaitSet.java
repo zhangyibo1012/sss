@@ -28,13 +28,14 @@ public class WaitSet {
     }
 
     /**
-     *  1.所有的对象都会有一个wait set,用来存放调用了该对象wait方法之后进入block状态线程
+     * 1.所有的对象都会有一个wait set,用来存放调用了该对象wait方法之后进入block状态线程
+     * <p>
+     * 2.线程被notify之后，不一定会立即得到执行
+     * <p>
+     * 3.线程从wait set中被唤醒顺序不一定是FIFO.
+     * <p>
+     * 4.线程被唤醒后，必须重新获取锁
      *
-     *  2.线程被notify之后，不一定会立即得到执行
-     *
-     *  3.线程从wait set中被唤醒顺序不一定是FIFO.
-     *
-     *  4.线程被唤醒后，必须重新获取锁
      * @param args
      */
     public static void main(String[] args) throws InterruptedException {

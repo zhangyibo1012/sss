@@ -11,10 +11,10 @@ public class DaemonThread2 {
 
     public static void main(String[] args) {
 
-        Thread t = new Thread(()->{
-            Thread innerThread = new Thread(() ->{
+        Thread t = new Thread(() -> {
+            Thread innerThread = new Thread(() -> {
                 try {
-                    while (true){
+                    while (true) {
                         System.out.println("Do some thing for health check");
                         Thread.sleep(1_000);
                     }

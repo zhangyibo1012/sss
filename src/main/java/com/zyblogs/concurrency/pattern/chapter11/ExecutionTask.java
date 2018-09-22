@@ -7,7 +7,7 @@ package com.zyblogs.concurrency.pattern.chapter11;
  * @Author ZhangYB
  * @Version V1.0
  */
-public class ExecutionTask implements Runnable{
+public class ExecutionTask implements Runnable {
 
     private QueryAction queryAction = new QueryAction();
 

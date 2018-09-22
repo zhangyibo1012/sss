@@ -15,6 +15,6 @@ public class ImmutableClient {
         // share data 共享数据
         Person person = new Person("Alex", "GanSu");
 
-        IntStream.rangeClosed(0 , 5).forEach(i -> new UsePersonThread(person).start());
+        IntStream.rangeClosed(0, 5).forEach(i -> new UsePersonThread(person).start());
     }
 }

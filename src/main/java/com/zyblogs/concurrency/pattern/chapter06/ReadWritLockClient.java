@@ -15,7 +15,7 @@ public class ReadWritLockClient {
         new ReaderWorker(sharedData).start();
         new ReaderWorker(sharedData).start();
         new ReaderWorker(sharedData).start();
-        new WriterWorker(sharedData , "qwertyuiopsdfg").start();
-        new WriterWorker(sharedData , "QWERTYUIOPSDFG").start();
+        new WriterWorker(sharedData, "qwertyuiopsdfg").start();
+        new WriterWorker(sharedData, "QWERTYUIOPSDFG").start();
     }
 }

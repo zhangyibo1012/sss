@@ -20,7 +20,7 @@ public class Subject {
     private int state;
 
     public void setState(int state) {
-        if (state == this.state){
+        if (state == this.state) {
             return;
         }
         this.state = state;
@@ -28,17 +28,18 @@ public class Subject {
     }
 
     /**
-     *  附加
+     * 附加
+     *
      * @param observer
      */
-    public void attch(Observer observer){
+    public void attch(Observer observer) {
         observers.add(observer);
     }
 
     /**
-     *  通知
+     * 通知
      */
-    private void notifyAllObserver(){
+    private void notifyAllObserver() {
         observers.stream().forEach(Observer::update);
     }
 }

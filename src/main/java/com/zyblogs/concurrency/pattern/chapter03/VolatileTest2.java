@@ -9,9 +9,8 @@ package com.zyblogs.concurrency.pattern.chapter03;
  */
 public class VolatileTest2 {
 
-    private static volatile int INIT_VALUE = 0;
-
     private final static int MAX_LIMIT = 500;
+    private static volatile int INIT_VALUE = 0;
 
     public static void main(String[] args) {
         new Thread(() -> {

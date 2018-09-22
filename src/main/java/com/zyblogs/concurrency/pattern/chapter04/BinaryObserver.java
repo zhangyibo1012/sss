@@ -7,9 +7,9 @@ package com.zyblogs.concurrency.pattern.chapter04;
  * @Author ZhangYB
  * @Version V1.0
  */
-public class BinaryObserver extends Observer{
+public class BinaryObserver extends Observer {
 
-    public BinaryObserver(Subject subject){
+    public BinaryObserver(Subject subject) {
         super(subject);
     }
 

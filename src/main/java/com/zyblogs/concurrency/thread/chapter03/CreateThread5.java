@@ -13,12 +13,12 @@ public class CreateThread5 {
 
     public static void main(String[] args) {
 
-        try{
-            for (int i = 0 ; i < Integer.MAX_VALUE ; i ++){
+        try {
+            for (int i = 0; i < Integer.MAX_VALUE; i++) {
                 count++;
                 new Thread(() -> {
-                    byte[] data = new byte[1024 * 1024 * 2 ];
-                    while (true){
+                    byte[] data = new byte[1024 * 1024 * 2];
+                    while (true) {
 //                        try {
 //                            Thread.sleep(1);
 //                        } catch (InterruptedException e) {
@@ -28,7 +28,7 @@ public class CreateThread5 {
                 }).start();
             }
 
-        }catch (Error error){
+        } catch (Error error) {
 
         }
         System.out.println("Total create thread nums => " + count);

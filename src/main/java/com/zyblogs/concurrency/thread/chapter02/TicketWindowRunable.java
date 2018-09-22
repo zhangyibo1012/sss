@@ -9,9 +9,8 @@ package com.zyblogs.concurrency.thread.chapter02;
  */
 public class TicketWindowRunable implements Runnable {
 
-    private int index = 1;
-
     private final static int MAX = 50;
+    private int index = 1;
 
     @Override
     public void run() {

@@ -16,29 +16,18 @@ import java.util.List;
 public class SimpleThreadPool extends Thread {
 
 
-
-    private int size;
-
-    private final int queueSize;
-
-    private final static int DEFAULT_TASK_QUEUE_SIZE = 2000;
-
-    private static volatile int seq = 0;
-
-    private final static String THREAD_PREFIX = "SIMPLE_THREAD_POOL-";
-
-    private final static ThreadGroup GROUP = new ThreadGroup("Pool_Group");
-
-    private final static LinkedList<Runnable> TASK_QUEUE = new LinkedList<>();
-
-    private final static List<WorkerTask> THREAD_QUEUE = new ArrayList<>();
-
-    private final DiscardPolicy discardPolicy;
-
     public final static DiscardPolicy DEFAULT_DISCARD_POLICY = () -> {
         throw new DiscardException("Discard This Task.");
     };
-
+    private final static int DEFAULT_TASK_QUEUE_SIZE = 2000;
+    private final static String THREAD_PREFIX = "SIMPLE_THREAD_POOL-";
+    private final static ThreadGroup GROUP = new ThreadGroup("Pool_Group");
+    private final static LinkedList<Runnable> TASK_QUEUE = new LinkedList<>();
+    private final static List<WorkerTask> THREAD_QUEUE = new ArrayList<>();
+    private static volatile int seq = 0;
+    private final int queueSize;
+    private final DiscardPolicy discardPolicy;
+    private int size;
     private volatile boolean destroy = false;
 
     private int min;
@@ -58,6 +47,28 @@ public class SimpleThreadPool extends Thread {
         this.queueSize = queueSize;
         this.discardPolicy = discardPolicy;
         init();
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        SimpleThreadPool threadPool = new SimpleThreadPool();
+        for (int i = 0; i < 40; i++) {
+            threadPool.submit(() -> {
+                System.out.println("The runnable  be serviced by " + Thread.currentThread() + " start.");
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("The runnable be serviced by " + Thread.currentThread() + " finished.");
+            });
+        }
+
+        Thread.sleep(10000);
+        threadPool.shutdown();
+
+       /* Thread.sleep(10000);
+        threadPool.shutdown();
+        threadPool.submit(() -> System.out.println("======="));*/
     }
 
     private void init() {
@@ -158,9 +169,13 @@ public class SimpleThreadPool extends Thread {
         System.out.println("The thread pool disposed.");
     }
 
-
     private enum TaskState {
         FREE, RUNNING, BLOCKED, DEAD
+    }
+
+    public interface DiscardPolicy {
+
+        void discard() throws DiscardException;
     }
 
     public static class DiscardException extends RuntimeException {
@@ -168,11 +183,6 @@ public class SimpleThreadPool extends Thread {
         public DiscardException(String message) {
             super(message);
         }
-    }
-
-    public interface DiscardPolicy {
-
-        void discard() throws DiscardException;
     }
 
     private static class WorkerTask extends Thread {
@@ -216,28 +226,6 @@ public class SimpleThreadPool extends Thread {
         public void close() {
             this.taskState = TaskState.DEAD;
         }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        SimpleThreadPool threadPool = new SimpleThreadPool();
-        for (int i = 0; i < 40; i++) {
-            threadPool.submit(() -> {
-                System.out.println("The runnable  be serviced by " + Thread.currentThread() + " start.");
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("The runnable be serviced by " + Thread.currentThread() + " finished.");
-            });
-        }
-
-        Thread.sleep(10000);
-        threadPool.shutdown();
-
-       /* Thread.sleep(10000);
-        threadPool.shutdown();
-        threadPool.submit(() -> System.out.println("======="));*/
     }
 }
 

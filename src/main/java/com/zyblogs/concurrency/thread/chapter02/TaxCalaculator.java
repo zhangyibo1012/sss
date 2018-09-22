@@ -17,12 +17,12 @@ import lombok.Setter;
 public class TaxCalaculator {
 
     /**
-     *  工资
+     * 工资
      */
     private final double salary;
 
     /**
-     *  奖金
+     * 奖金
      */
     private final double bouns;
 
@@ -35,7 +35,7 @@ public class TaxCalaculator {
 
     protected double calcTax() {
 
-        return calculatorStrategy.calculate(salary , bouns);
+        return calculatorStrategy.calculate(salary, bouns);
     }
 
     public double calcuate() {

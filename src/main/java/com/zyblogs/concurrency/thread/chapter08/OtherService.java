@@ -17,14 +17,14 @@ public class OtherService {
     private DeadLock deadLock;
 
     public void s1() {
-        synchronized (LOCK){
+        synchronized (LOCK) {
             System.out.println("s1=================");
         }
     }
 
 
     public void s2() {
-        synchronized (LOCK){
+        synchronized (LOCK) {
             System.out.println("s2=================");
             deadLock.m2();
         }

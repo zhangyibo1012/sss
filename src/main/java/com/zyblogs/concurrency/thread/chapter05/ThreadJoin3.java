@@ -30,7 +30,7 @@ public class ThreadJoin3 {
 }
 
 @AllArgsConstructor
-class CaptureRunnable implements Runnable{
+class CaptureRunnable implements Runnable {
 
     private String machineName;
 

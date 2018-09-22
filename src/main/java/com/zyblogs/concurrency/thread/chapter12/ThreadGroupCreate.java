@@ -14,10 +14,10 @@ public class ThreadGroupCreate {
 
         // use the name
         ThreadGroup tg1 = new ThreadGroup("TG1");
-        Thread t1 = new Thread(tg1 , "t1"){
+        Thread t1 = new Thread(tg1, "t1") {
             @Override
             public void run() {
-                while (true){
+                while (true) {
                     try {
                         System.out.println(getThreadGroup().getName());
                         System.out.println(getThreadGroup().getParent());
@@ -34,7 +34,7 @@ public class ThreadGroupCreate {
 
         // use the parent and group name
         ThreadGroup tg2 = new ThreadGroup("TG2");
-        Thread t2 = new Thread(tg2,"T2"){
+        Thread t2 = new Thread(tg2, "T2") {
             @Override
             public void run() {
                 System.out.println(tg1.getName());

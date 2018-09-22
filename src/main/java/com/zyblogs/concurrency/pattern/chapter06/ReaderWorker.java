@@ -18,13 +18,13 @@ public class ReaderWorker extends Thread {
     @Override
     public void run() {
         try {
-          while (true){
-              char[] readBuf = data.read();
-              System.out.println(Thread.currentThread().getName() + " reads " + String.valueOf(readBuf));
+            while (true) {
+                char[] readBuf = data.read();
+                System.out.println(Thread.currentThread().getName() + " reads " + String.valueOf(readBuf));
             }
-        }catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 }

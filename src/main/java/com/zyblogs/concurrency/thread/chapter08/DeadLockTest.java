@@ -3,9 +3,7 @@ package com.zyblogs.concurrency.thread.chapter08;
 /**
  * @Title: DeadLockTest.java
  * @Package com.zyblogs.concurrency.thread.chapter08
- * @Description:
- *     cmd jps  jstack
- *
+ * @Description: cmd jps  jstack
  * @Author ZhangYB
  * @Version V1.0
  */
@@ -16,13 +14,13 @@ public class DeadLockTest {
         otherService.setDeadLock(deadLock);
 
         new Thread(() -> {
-            while (true){
+            while (true) {
                 deadLock.m1();
             }
         }).start();
 
-        new Thread(() ->{
-            while (true){
+        new Thread(() -> {
+            while (true) {
                 otherService.s2();
             }
         }).start();

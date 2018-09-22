@@ -9,7 +9,7 @@ package com.zyblogs.concurrency.pattern.chapter11;
  */
 public class QueryAction {
 
-    public void execute(){
+    public void execute() {
         try {
             Thread.sleep(1_00);
             String name = " Alex " + Thread.currentThread().getName();
