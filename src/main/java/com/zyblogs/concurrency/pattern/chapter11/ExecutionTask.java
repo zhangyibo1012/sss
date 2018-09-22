@@ -15,11 +15,12 @@ public class ExecutionTask implements Runnable{
 
     @Override
     public void run() {
-        final Context context = new Context();
-        queryAction.execute(context);
-        System.out.println("The name query successful.");
-        httpAction.execute(context);
-        System.out.println("The card id query successful.");
-        System.out.println("The Name is " + context.getName() + " and  cardId " + context.getCardId());
+        queryAction.execute();
+        System.out.println("The name query successful");
+        httpAction.execute();
+        System.out.println("The card id query successful");
+
+        Context context = ActionContext.getActionContext().getContext();
+        System.out.println("The Name is " + context.getName() + " and CardId " + context.getCardId());
     }
 }

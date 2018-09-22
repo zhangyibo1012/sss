@@ -9,7 +9,8 @@ package com.zyblogs.concurrency.pattern.chapter11;
  */
 public class QueryFromHttpAction {
 
-    public void execute(Context context){
+    public void execute(){
+        Context context = ActionContext.getActionContext().getContext();
         String name = context.getName();
         String cardId = getCardId(name);
         context.setCardId(cardId);

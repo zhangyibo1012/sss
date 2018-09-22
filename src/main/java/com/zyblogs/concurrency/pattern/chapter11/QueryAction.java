@@ -9,11 +9,11 @@ package com.zyblogs.concurrency.pattern.chapter11;
  */
 public class QueryAction {
 
-    public void execute(Context context){
+    public void execute(){
         try {
             Thread.sleep(1_00);
             String name = " Alex " + Thread.currentThread().getName();
-            context.setName(name);
+            ActionContext.getActionContext().getContext().setName(name);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
