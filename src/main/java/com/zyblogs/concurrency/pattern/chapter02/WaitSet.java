@@ -4,7 +4,7 @@ package com.zyblogs.concurrency.pattern.chapter02;
 /**
  * @Title: WaitSet.java
  * @Package com.zyblogs.concurrency.pattern.chapter02
- * @Description: TODO
+ * @Description: TODO 线程休息室
  * @Author ZhangYB
  * @Version V1.0
  */

@@ -1,6 +1,5 @@
 package com.zyblogs.concurrency.pattern.chapter01;
 
-import java.util.stream.IntStream;
 
 /**
  * @Title: SingletonObject.java
@@ -13,23 +12,24 @@ import java.util.stream.IntStream;
 public class SingletonObject {
 
     private SingletonObject() {
+    }
 
+    private static class InstanceHolder {
+        private final static SingletonObject instance = new SingletonObject();
     }
 
     public static SingletonObject getInstance() {
         return InstanceHolder.instance;
     }
 
-    public static void main(String[] args) {
-        IntStream.rangeClosed(1, 100).forEach(i -> new Thread(String.valueOf(i)) {
-            @Override
-            public void run() {
-                System.out.println(SingletonObject.getInstance());
-            }
-        }.start());
-    }
+//    public static void main(String[] args) {
+//        IntStream.rangeClosed(1, 100).forEach(i -> new Thread(String.valueOf(i)) {
+//            @Override
+//            public void run() {
+//                System.out.println(SingletonObject.getInstance());
+//            }
+//        }.start());
+//    }
 
-    private static class InstanceHolder {
-        private final static SingletonObject instance = new SingletonObject();
-    }
+
 }
