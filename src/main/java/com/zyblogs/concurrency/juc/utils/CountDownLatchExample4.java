@@ -17,17 +17,14 @@ import java.util.concurrent.Executors;
  * @Version V1.0
  */
 public class CountDownLatchExample4 {
-
     private static final Random random = new Random(System.currentTimeMillis());
-
     static class Event{
-        int id = 0;
 
+        int id = 0;
         public Event(int id) {
             this.id = id;
         }
     }
-
     interface Watcher{
         void done(Table table);
     }
