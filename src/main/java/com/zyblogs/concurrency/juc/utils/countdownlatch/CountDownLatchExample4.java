@@ -1,4 +1,4 @@
-package com.zyblogs.concurrency.juc.utils;
+package com.zyblogs.concurrency.juc.utils.countdownlatch;
 
 import lombok.ToString;
 
